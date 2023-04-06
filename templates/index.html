@@ -1,0 +1,32 @@
+<html>
+     <head>
+      Task List
+     </head>
+      <body>
+        <form method="post" action="/add">
+          <input type="text" name="taskName">
+          <input type="text" name="dueDate">
+          <input type="submit" name="Add Task">
+        </form>
+        <table border="5">
+          <tr>
+            <th>
+              Task Name
+            </th>
+            <th>
+              Is Done
+            </th>
+          </tr>
+          {% for task in TaskList: %} 
+            <tr>
+              <td>
+              {{ task [0] }}
+              </td>
+              <td>
+                {{ task [1] }}
+              </td>
+            </tr>
+          {%endfor%}
+        </table>  
+      </body>
+</html>
