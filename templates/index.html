@@ -1,45 +1,47 @@
 <html>
      <head>
-      Task List
+      
       <link rel="stylesheet" href="static/style.css">
      </head>
       <body>
-        <form method="post" action="/add">
-          <input type="text" name="taskName">
-          <input type="text" name="dueDate">
-          <input type="submit" name="Add Task">
-        </form>
-        <table border="5">
-          <tr>
-            <th>
-              Task Name
-            </th>
-            <th>
-              Is Done
-            </th>
-          </tr>
-          {% for task in TaskList: %} 
-            <tr>
-              <form method="post" action="/update">
-                  <td>
-                     <input type="hidden" name="id" value="{{ task [0] }}"/> 
-                     <input type="text" name="updateTask" value="{{ task [1] }}"/> 
+        <section>
+            <form method="post" action="/add">
+              <input type="text" name="taskName" placeholder="Nome">
+              <input type="text" name="dueDate" placeholder="Data">
+              <input type="submit" name="Add Task">
+            </form>
+            <table border="5">
+              <tr>
+                <th>
+                  Task Name
+                </th>
+                <th>
+                  Is Done
+                </th>
+              </tr>
+              {% for task in TaskList: %} 
+                <tr>
+                  <form method="post" action="/update">
+                      <td>
+                        <input type="hidden"  name="id" value="{{ task [0] }}"/> 
+                        <input type="text"  name="updateTask" value="{{ task [1] }}"/> 
 
-                    </td>
-                  
-                  <td>
-                    <!-- <input type="hidden" name="id" value=""/>  -->
-                    {{ task [2] }}
-                  </td>
-                  <td>
-                    <input type="submit" name="save" value="Confirmar_Edicao">
-                  </td>
-                  <td>
-                    <input type="submit" name="save" value="Delete">
-                  </td>
-                </form>
-            </tr>
-          {%endfor%}
-        </table>  
+                        </td>
+                      
+                      <td>
+                        <!-- <input type="hidden" name="id" value=""/>  -->
+                        {{ task [2] }}
+                      </td>
+                      <td>
+                        <input type="submit" name="save" value="Confirmar_Edicao">
+                      </td>
+                      <td>
+                        <input type="submit" name="save" value="Delete">
+                      </td>
+                    </form>
+                </tr>
+              {%endfor%}
+            </table>  
+          </section>
       </body>
 </html>
