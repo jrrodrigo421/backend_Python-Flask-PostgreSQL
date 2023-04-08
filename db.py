@@ -18,34 +18,25 @@ def getTaskList():
     return tasklist
 
 
-def addTask(name, date):
+def executeQuery(query):
     conn = psycopg2.connect(dbname=db_name, user=db_user,
                             password=db_pw, host=db_host)
     cur = conn.cursor()
-    cur.execute(
-        'INSERT INTO public."TaskList"(task_name, due_date) values(\'%s\', \'%s\')' % (name, date))
+    cur.execute(query)
     conn.commit()
     cur.close()
     conn.close()
+
+
+def addTask(name, date):
+    executeQuery(
+        'INSERT INTO public."TaskList"(task_name, due_date) values(\'%s\', \'%s\')' % (name, date))
 
 
 def updateTask(name, id):
-    conn = psycopg2.connect(dbname=db_name, user=db_user,
-                            password=db_pw, host=db_host)
-    cur = conn.cursor()
-    cur.execute(
+    executeQuery(
         'UPDATE public."TaskList" SET task_name=\'% s\' WHERE id=%s;' % (name, id))
-    conn.commit()
-    cur.close()
-    conn.close()
 
 
 def deleteTask(id):
-    conn = psycopg2.connect(dbname=db_name, user=db_user,
-                            password=db_pw, host=db_host)
-    cur = conn.cursor()
-    cur.execute(
-        'DELETE FROM public."TaskList" WHERE id=%s;' % (id))
-    conn.commit()
-    cur.close()
-    conn.close()
+    executeQuery('DELETE FROM public."TaskList" WHERE id=%s;' % (id))
