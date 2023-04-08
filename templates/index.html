@@ -1,6 +1,7 @@
 <html>
      <head>
       Task List
+      <link rel="stylesheet" href="static/style.css">
      </head>
       <body>
         <form method="post" action="/add">
@@ -22,7 +23,7 @@
               <form method="post" action="/update">
                   <td>
                      <input type="hidden" name="id" value="{{ task [0] }}"/> 
-                     <input type="text" name="updatetask" value="{{ task [1] }}"/> 
+                     <input type="text" name="updateTask" value="{{ task [1] }}"/> 
 
                     </td>
                   
@@ -31,10 +32,10 @@
                     {{ task [2] }}
                   </td>
                   <td>
-                    <input type="submit" name="save" value="saveOrDelete">
+                    <input type="submit" name="save" value="Confirmar_Edicao">
                   </td>
                   <td>
-                    <input type="submit" name="save" value="X">
+                    <input type="submit" name="save" value="Delete">
                   </td>
                 </form>
             </tr>

@@ -26,10 +26,10 @@ def add():
 def update():
     updatetaskname = request.form['updateTask']
     id = request.form['id']
-    button = request.form['saveOrDelete']
-    if button == "save":
+    button = request.form['save']
+    if button == "Confirmar_Edicao":
         updateTask(updatetaskname, id)
-    elif button == "X":
+    elif button == "Delete":
         deleteTask(id)
     return redirect(url_for('index'))
 
