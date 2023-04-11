@@ -11,6 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     tasklist = getTaskList()
+    # return render_template('index.html')
     return render_template('index.html', TaskList=tasklist)
 
 
