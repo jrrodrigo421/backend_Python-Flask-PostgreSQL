@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, redirect, url_for
 from db import getTaskList, addTask, updateTask, deleteTask
 
 app = Flask(__name__)
-
 # tasklist = [["Walk Dog", True], [
 # "Wash Dishes", False], ["Take Out Trash", True]]
 
